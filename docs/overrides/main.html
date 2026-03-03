@@ -1,27 +1,22 @@
-{% extends "base.html" %}
-{% block extrahead %}
-  <script>
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        ((w, d, s, l, i) => {
-          w[l] = w[l] || [];
-          w[l].push({ "gtm.start": Date.now(), event: "gtm.js" });
-          var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l !== "dataLayer" ? `&l=${l}` : "";
-          j.async = true;
-          j.defer = true;
-          j.src = `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`;
-          f.parentNode.insertBefore(j, f);
-        })(window, document, "script", "dataLayer", "GTM-MZ9KWSFF");
-      }, 1000); // 1 second delay after page load
-    });
-  </script>
-  {{ super() }}
-{% endblock %}
-
-{% block announce %}
->>>>>>> dd2e86c22 (added delay to GTM load)
+{% extends "base.html" %} {% block extrahead %}
+<script>
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      ((w, d, s, l, i) => {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": Date.now(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l !== "dataLayer" ? `&l=${l}` : "";
+        j.async = true;
+        j.defer = true;
+        j.src = `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MZ9KWSFF");
+    }, 1000); // 1 second delay after page load
+  });
+</script>
+{{ super() }} {% endblock %} {% block announce %} >>>>>>> dd2e86c22 (added delay to GTM load)
 <a class="banner-wrapper" href="https://docs.ultralytics.com/models/yolo26">
   <div class="banner-content-wrapper">
     <img
